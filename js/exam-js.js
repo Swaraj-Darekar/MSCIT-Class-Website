@@ -1,7 +1,7 @@
 // Initialize EmailJS
-emailjs.init("J3INI1kQv1FR_mxDl");
+emailjs.init("5sTyfkAKeN2LX2Ehy");
 
-const TEACHER_EMAIL = "vandanadarekar22@gmail.com";
+const TEACHER_EMAIL = "omkarcomps11@gmail.com";
 
 let currentLanguage = '';
 let currentTest = 0;
@@ -586,7 +586,7 @@ function sendPassword() {
         test_number: currentTest
     };
 
-    emailjs.send('service_v0j6qrw', 'template_41w4ezi', templateParams)
+    emailjs.send('service_94jg5nx', 'template_rugm8ej', templateParams)
         .then(() => {
             alert('Password sent to your email! Please check.');
             showPage('passwordPage');
@@ -837,7 +837,7 @@ function sendResultEmail(score, weakTopics) {
         weak_topics: weakTopicsText
     };
 
-    emailjs.send('service_v0j6qrw', 'template_za94k5y', studentParams)
+    emailjs.send('service_94jg5nx', 'template_1c92fy8', studentParams)
         .then(() => console.log('Results sent to student successfully'))
         .catch((error) => console.error('Student email error:', error));
 
@@ -852,7 +852,7 @@ function sendResultEmail(score, weakTopics) {
         weak_topics: weakTopicsText
     };
 
-    emailjs.send('service_v0j6qrw', 'template_za94k5y', teacherParams)
+    emailjs.send('service_94jg5nx', 'template_1c92fy8', teacherParams)
         .then(() => console.log('Results sent to teacher successfully'))
         .catch((error) => console.error('Teacher email error:', error));
 }
@@ -936,4 +936,5 @@ if (!document.getElementById('review-styles')) {
     styleSheet.id = 'review-styles';
     styleSheet.textContent = reviewStyles;
     document.head.appendChild(styleSheet);
+
 }
