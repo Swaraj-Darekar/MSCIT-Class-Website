@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online MCQ Test </title>
+    <link rel="stylesheet" href="css/exam-css.css">
+
+</head>
+
+<body>
+    <div class="container">
+        <!-- HOME PAGE -->
+        <div id="homePage">
+            <h1>📚 Master your programming skills</h1>
+            <p style="text-align: center; color: #666; margin-bottom: 20px;">Choose your programming language to begin
+            </p>
+            <div class="language-grid">
+                <div class="language-card" onclick="selectLanguage('C')">
+                    <h3>C</h3>
+                    <p>Master C Programming</p>
+                </div>
+                <div class="language-card" onclick="selectLanguage('C++')">
+                    <h3>C++</h3>
+                    <p>Object-Oriented C++</p>
+                </div>
+                <div class="language-card" onclick="selectLanguage('Java')">
+                    <h3>Java</h3>
+                    <p>Enterprise Java</p>
+                </div>
+                <div class="language-card" onclick="selectLanguage('Python')">
+                    <h3>Python</h3>
+                    <p>Modern Python</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- TEST SELECTION PAGE -->
+        <div id="testSelectionPage" class="hidden">
+            <button class="back-btn" onclick="showHome()">← Back to Home</button>
+            <h2 id="languageTitle"></h2>
+            <div class="test-grid">
+                <div class="test-card" onclick="selectTest(1)">
+                    <h4>Test 1</h4>
+                    <p>Basics & Fundamentals (25 Questions)</p>
+                </div>
+                <div class="test-card" onclick="selectTest(2)">
+                    <h4>Test 2</h4>
+                    <p>Advanced Concepts (25 Questions)</p>
+                </div>
+                <div class="test-card" onclick="selectTest(3)">
+                    <h4>Test 3</h4>
+                    <p>Methods & Functions (25 Questions)</p>
+                </div>
+                <div class="test-card" onclick="selectTest(4)">
+                    <h4>Test 4</h4>
+                    <p>OOP Concepts (25 Questions)</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- STUDENT INFO PAGE -->
+        <div id="studentInfoPage" class="hidden">
+            <button class="back-btn" onclick="showTestSelection()">← Back</button>
+            <h2>Student Information</h2>
+            <div class="form-container">
+                <div class="form-group">
+                    <label>Name:</label>
+                    <input type="text" id="studentName" placeholder="Enter your full name">
+                </div>
+                <div class="form-group">
+                    <label>Email:</label>
+                    <input type="email" id="studentEmail" placeholder="Enter your email">
+                </div>
+                <button onclick="sendPassword()">Send Password & Start Test</button>
+            </div>
+        </div>
+
+        <!-- PASSWORD PAGE -->
+        <div id="passwordPage" class="hidden">
+            <h2>Enter Password</h2>
+            <div class="form-container">
+                <p style="margin-bottom: 20px; color: #666;">A password has been sent to your email. Please check and
+                    enter it below.</p>
+                <div class="form-group">
+                    <label>Password:</label>
+                    <input type="text" id="passwordInput" placeholder="Enter the password from email">
+                </div>
+                <button onclick="verifyPassword()">Start Test</button>
+            </div>
+        </div>
+
+        <!-- QUIZ PAGE -->
+        <div id="quizPage" class="hidden">
+            <div class="quiz-header">
+                <div class="quiz-info">
+                    <div class="info-item">
+                        <span class="info-label">Student Name</span>
+                        <span class="info-value" id="studentNameDisplay"></span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Test</span>
+                        <span class="info-value" id="quizTitle"></span>
+                    </div>
+                </div>
+                <div class="timer" id="timer">30:00</div>
+            </div>
+
+            <div class="quiz-layout">
+                <div class="quiz-main">
+                    <div class="question-section">
+                        <div class="question-header">
+                            <span class="question-number" id="questionNumber">Question 1 of 20</span>
+                            <span class="question-marks">1 Mark</span>
+                        </div>
+                        <div class="question-text" id="questionText"></div>
+                        <div class="options-container" id="optionsContainer"></div>
+                    </div>
+
+                    <div class="navigation">
+                        <div class="nav-buttons">
+                            <button onclick="previousQuestion()" id="prevBtn">← Previous</button>
+                            <button onclick="nextQuestion()" id="nextBtn">Next →</button>
+                        </div>
+                        <button onclick="confirmSubmit()" id="submitBtn" style="background: #28a745;">Submit
+                            Test</button>
+                    </div>
+                </div>
+
+                <div class="quiz-sidebar">
+                    <div class="question-palette">
+                        <div class="palette-header">Question Palette</div>
+                        <div class="palette-grid" id="questionNav"></div>
+                        <div class="palette-legend">
+                            <div class="legend-item">
+                                <div class="legend-box answered"></div>
+                                <span>Answered</span>
+                            </div>
+                            <div class="legend-item">
+                                <div class="legend-box current"></div>
+                                <span>Current</span>
+                            </div>
+                            <div class="legend-item">
+                                <div class="legend-box"></div>
+                                <span>Not Answered</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- RESULT PAGE -->
+        <!-- RESULT PAGE -->
+        <div id="resultPage" class="hidden">
+            <div class="result-container">
+                <div class="result-header">
+                    <div class="result-icon">🎉</div>
+                    <h2>Test Completed Successfully!</h2>
+                </div>
+
+                <div class="score-card">
+                    <div class="score-label">Your Score</div>
+                    <div class="score-display" id="scoreDisplay"></div>
+                    <p id="resultMessage" style="font-size: 1.2em;"></p>
+                </div>
+
+                <div class="result-details">
+                    <div class="detail-card">
+                        <div class="detail-value" id="correctAnswers">0</div>
+                        <div class="detail-label">Correct Answers</div>
+                    </div>
+                    <div class="detail-card">
+                        <div class="detail-value" id="incorrectAnswers">0</div>
+                        <div class="detail-label">Incorrect Answers</div>
+                    </div>
+                    <div class="detail-card">
+                        <div class="detail-value" id="percentageDisplay">0%</div>
+                        <div class="detail-label">Percentage</div>
+                    </div>
+                </div>
+
+                <div class="weak-topics" id="weakTopicsContainer"></div>
+
+                <div style="display: flex; gap: 15px; justify-content: center; margin-top: 30px;">
+                    <button onclick="reviewAnswers()"
+                        style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                        📝 Review Answers
+                    </button>
+                    <button onclick="showHome()" style="background: #6c757d;">
+                        🏠 Back to Home
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
+    <script src="js/exam-js.js">  </script>
+
+
+</body>
+
+</html>

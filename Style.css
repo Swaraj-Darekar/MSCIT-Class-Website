@@ -18,7 +18,7 @@ body {
 
 /* Header */
 header {
-    background: #2c3e50;
+    background: rgba(20, 20, 20, 0.6); 
     padding: 1rem 0;
     position: fixed;
     width: 100%;
@@ -33,20 +33,37 @@ nav {
     align-items: center;
 }
 
+/* Update the logo section in Style.css */
+
 .logo {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: white;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+   
+}
+
+.logo-image {
+    width: 50px;
+    height: 50px;
+   object-fit: cover; /* Changed from 'contain' to 'cover' for better circular fit */
+    border-radius: 50%; /* 50% creates a perfect circle */
+    border: 2px solid white; /* Optional: adds a white border around the logo */
+    padding: 2px;
+}
+
+.logo-text {
     display: flex;
     flex-direction: column;
     line-height: 1.2;
+    font-weight: bold;
+    color: white;
 }
 
-.logo span {
+.logo-text span {
     font-size: 1.5rem;
 }
 
-.logo span:last-child {
+.logo-text span:last-child {
     font-size: 1.2rem;
 }
 
@@ -473,6 +490,212 @@ footer {
         font-size: 1.5rem;
     }
 }
+
+
+
+
+/* Gallery Section */
+.gallery {
+    background: white;
+    padding: 80px 0;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    cursor: pointer;
+    height: 250px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.1);
+}
+
+.gallery-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(17, 17, 17, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.gallery-item:hover .gallery-overlay {
+    opacity: 1;
+}
+
+.gallery-overlay span {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* Responsive for Gallery */
+@media (max-width: 768px) {
+    .gallery-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1rem;
+    }
+    
+    .gallery-item {
+        height: 200px;
+    }
+}
+
+
+ /* Lightbox Styles */
+        .lightbox {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.95);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .lightbox.active {
+            display: flex;
+        }
+
+        .lightbox-content {
+            position: relative;
+            max-width: 90%;
+            max-height: 90%;
+            animation: zoomIn 0.3s ease;
+        }
+
+        @keyframes zoomIn {
+            from {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .lightbox-content img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border-radius: 8px;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            color: white;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            background: none;
+            border: none;
+            transition: transform 0.3s ease;
+        }
+
+        .lightbox-close:hover {
+            transform: scale(1.2);
+        }
+
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: white;
+            font-size: 50px;
+            font-weight: bold;
+            cursor: pointer;
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            padding: 20px;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            user-select: none;
+        }
+
+        .lightbox-nav:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .lightbox-prev {
+            left: 20px;
+        }
+
+        .lightbox-next {
+            right: 20px;
+        }
+
+        .lightbox-caption {
+            position: absolute;
+            bottom: -50px;
+            left: 0;
+            right: 0;
+            color: white;
+            text-align: center;
+            font-size: 18px;
+            padding: 10px;
+        }
+
+        .gallery-item {
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 768px) {
+            .lightbox-nav {
+                font-size: 30px;
+                padding: 10px;
+            }
+
+            .lightbox-close {
+                font-size: 30px;
+                top: -35px;
+            }
+
+            .lightbox-caption {
+                font-size: 14px;
+            }
+        }
+
+
+
+
+
+
+
+
 
 /* Responsive */
 @media (max-width: 768px) {
