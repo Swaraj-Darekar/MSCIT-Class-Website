@@ -113,9 +113,9 @@ nav a:hover {
     transform: translateY(-10.5px) rotate(-45deg);
 }
 
-/* Hero Section - Made Bigger */
+/* Hero Section - Made Bigger - FIXED IMAGE PATH */
 .hero {
-    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('images/home_banner.png');
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('./images/home_banner.png');
     background-size: cover;
     background-position: center;
     color: white;
@@ -207,7 +207,7 @@ section {
     color: #666;
 }
 
-/* About Section */
+/* About Section - FIXED IMAGE PATH */
 .about-content {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -229,10 +229,9 @@ section {
 
 .about-image {
     height: 400px;
-    background: url("images/About-us.png");
+    background: url("./images/About-us.png");
     background-size: cover;
     background-position: center;
-    
     border-radius: 10px;
 }
 
