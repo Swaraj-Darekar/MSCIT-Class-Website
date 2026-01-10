@@ -566,6 +566,7 @@ function selectTest(testNum) {
     showPage('studentInfoPage');
 }
 
+// ===== MAIN FIX: sendPassword function =====
 function sendPassword() {
     const name = document.getElementById('studentName').value.trim();
     const email = document.getElementById('studentEmail').value.trim();
@@ -575,25 +576,36 @@ function sendPassword() {
         return;
     }
 
+    // Validate email format
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(email)) {
+        alert('Please enter a valid email address');
+        return;
+    }
+
     studentData = { name, email, teacherEmail: TEACHER_EMAIL };
     testPassword = Math.random().toString(36).substring(2, 8).toUpperCase();
 
+    // FIX: Make sure to_email goes to STUDENT email
     const templateParams = {
-        to_email: email,
+        to_email: email,  // ← CRITICAL: This sends to student, not teacher
         student_name: name,
         password: testPassword,
         language: currentLanguage,
         test_number: currentTest
     };
 
+    console.log('Sending password email to student:', email); // Debug log
+
     emailjs.send('service_94jg5nx', 'template_rugm8ej', templateParams)
         .then(() => {
-            alert('Password sent to your email! Please check.');
+            console.log('Password sent successfully to:', email);
+            alert('Password sent to your email! Please check your inbox.');
             showPage('passwordPage');
         })
         .catch((error) => {
-            console.error('Email error:', error);
-            alert('Demo mode: Your password is ' + testPassword);
+            console.error('Email sending error:', error);
+            alert('Error sending email. Demo mode: Your password is ' + testPassword);
             showPage('passwordPage');
         });
 }
@@ -821,41 +833,59 @@ function displayResults(score, weakTopics) {
     document.getElementById('weakTopicsContainer').innerHTML = weakTopicsHtml;
 }
 
+// ===== IMPROVED: sendResultEmail function =====
 function sendResultEmail(score, weakTopics) {
     const weakTopicsText = weakTopics.length > 0 ?
         weakTopics.join(', ') : 'No weak areas - Excellent performance!';
 
+    const percentage = ((score / totalQuestions) * 100).toFixed(2);
+
+    // Send to STUDENT
     const studentParams = {
-        to_email: studentData.email,
+        to_email: studentData.email,  // ← Student email
         student_name: studentData.name,
-        teacher_email: studentData.teacherEmail,
         language: currentLanguage,
         test_number: currentTest,
         score: score,
         total: totalQuestions,
-        percentage: ((score / totalQuestions) * 100).toFixed(2),
+        percentage: percentage,
         weak_topics: weakTopicsText
     };
+
+    console.log('Sending results to student:', studentData.email);
 
     emailjs.send('service_94jg5nx', 'template_1c92fy8', studentParams)
-        .then(() => console.log('Results sent to student successfully'))
-        .catch((error) => console.error('Student email error:', error));
+        .then(() => {
+            console.log('Results sent to student successfully');
+        })
+        .catch((error) => {
+            console.error('Student email error:', error);
+        });
 
+    // Send to TEACHER
     const teacherParams = {
-        to_email: TEACHER_EMAIL,
+        to_email: TEACHER_EMAIL,  // ← Teacher email
         student_name: studentData.name,
+        student_email: studentData.email,  // Include student email for teacher's reference
         language: currentLanguage,
         test_number: currentTest,
         score: score,
         total: totalQuestions,
-        percentage: ((score / totalQuestions) * 100).toFixed(2),
+        percentage: percentage,
         weak_topics: weakTopicsText
     };
 
+    console.log('Sending results to teacher:', TEACHER_EMAIL);
+
     emailjs.send('service_94jg5nx', 'template_1c92fy8', teacherParams)
-        .then(() => console.log('Results sent to teacher successfully'))
-        .catch((error) => console.error('Teacher email error:', error));
+        .then(() => {
+            console.log('Results sent to teacher successfully');
+        })
+        .catch((error) => {
+            console.error('Teacher email error:', error);
+        });
 }
+
 
 function reviewAnswers() {
     isReviewMode = true;
@@ -938,4 +968,5 @@ if (!document.getElementById('review-styles')) {
     document.head.appendChild(styleSheet);
 
 }
+
 
