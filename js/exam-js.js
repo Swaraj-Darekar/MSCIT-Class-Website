@@ -50,17 +50,17 @@ while(i < 1){
             { q: "Array index in C starts from", options: ["−1", "0", "1", "depends on compiler"], correct: 1, topic: "Array" },
             { q: "Which declaration is correct?", options: ["int a[] = {1,2,3};", "int a[3] = {1,2,3};", "Both A & B", "None"], correct: 2, topic: "Array" },
             { q: "Which is wrong variable declaration?", options: ["int _a;", "float 1a;", "char name;", "int marks_1;"], correct: 1, topic: "Keywords, Variables, Data Types" },
-{
-    q: "Which statement is true about Scanner object?",
-    options: [
-        "It can read input from keyboard",
-        "It can only read integers",
-        "It is used for output",
-        "It does not require import"
-    ],
-    correct: 0,
-    topic: "Scanner/Input"
-},
+            {
+                q: "Which statement is true about Scanner object?",
+                options: [
+                    "It can read input from keyboard",
+                    "It can only read integers",
+                    "It is used for output",
+                    "It does not require import"
+                ],
+                correct: 0,
+                topic: "Scanner/Input"
+            },
             { q: "Number of elements in int a[3][4];", options: ["7", "12", "3", "4"], correct: 1, topic: "Array" },
             { q: "Which access is correct?", options: ["a[2,3]", "a(2)(3)", "a[2][3]", "a<2><3>"], correct: 2, topic: "Array" },
             { q: "Function is a block of code that", options: ["runs automatically", "performs a specific task", "replaces main()", "compiles program"], correct: 1, topic: "Function" },
@@ -381,23 +381,23 @@ System.out.println(sum);`,
                 correct: 3,
                 topic: "loops"
             },
- {
-    q: `Output of code:
+            {
+                q: `Output of code:
 
 for(int i = 1; i <= 5; i++){
     if(i == 3)
         continue;
     System.out.print(i);
 }`,
-    options: [
-        "12345",
-        "1234",
-        "1245",
-        "135"
-    ],
-    correct: 2,
-    topic: "loops"
-},
+                options: [
+                    "12345",
+                    "1234",
+                    "1245",
+                    "135"
+                ],
+                correct: 2,
+                topic: "loops"
+            },
             { q: "How many values can a method return directly?", options: ["0", "1", "2", "many"], correct: 1, topic: "methods" }
         ],
         2: [
@@ -425,108 +425,194 @@ for(int i = 1; i <= 5; i++){
 
     'Python': {
         1: [
-            { q: "Which of the following is a valid variable name?", options: ["2value", "value-2", "_value2", "value 2"], correct: 2, topic: "Keywords, Variables, Data Types" },
-            { q: "Which symbol is used for single line comments?", options: ["//", "/*", "#", "##"], correct: 0, topic: "comments" },
-            { q: "Which function is used to take formatted input?", options: ["printf()", "cin", "scanf()", "gets()"], correct: 2, topic: "input/output" },
-            { q: "Which header file is needed for printf?", options: ["iostream", "stdio.h", "string.h", "math.h"], correct: 1, topic: "input/output" },
-            { q: "What does '&' represent in scanf?", options: ["Reference", "Address", "Pointer", "Variable"], correct: 1, topic: "input/output" },
-            { q: "Size of int in most 32-bit compilers is", options: ["1 byte", "2 bytes", "4 bytes", "8 bytes"], correct: 2, topic: "basics" },
-            { q: "What will printf(\"%d\", 'A'); output?", options: ["A", "65", "Error", "ASCII"], correct: 1, topic: "input/output" },
-            { q: "Result of 5 > 3 && 2 > 4 is", options: ["true", "false", "1", "0"], correct: 3, topic: "operators" },
-            { q: "How many case labels can be inside switch?", options: ["Only 5", "Only 10", "Depends on compiler", "As many as needed"], correct: 3, topic: "if, if-else, switch-case" },
-            { q: "Which data type is NOT allowed in switch expression?", options: ["int", "char", "float", "short"], correct: 2, topic: "if, if-else, switch-case" },
-            { q: "Which loop executes at least once?", options: ["for", "while", "do-while", "none"], correct: 2, topic: "if, if-else, switch-case" },
             {
-                q: `Output of code:
-
-int i = 1;
-while(i < 1){
-    printf("Hello");
-}`,
-                options: [
-                    "Hello printed once",
-                    "Hello infinite",
-                    "No output",
-                    "Compilation error"
-                ],
-                correct: 2,
-                topic: "loops"
-            },
-            { q: "continue statement does", options: ["terminates loop completely", "skips current iteration", "stops program", "does nothing"], correct: 1, topic: "break / continue" },
-            { q: "Which is true about functions?", options: ["Always return value", "Never return value", "May or may not return value", "Must take arguments"], correct: 2, topic: "functions" },
-            { q: "Array index in C starts from", options: ["−1", "0", "1", "depends on compiler"], correct: 1, topic: "Array" },
-            { q: "Which declaration is correct?", options: ["int a[] = {1,2,3};", "int a[3] = {1,2,3};", "Both A & B", "None"], correct: 2, topic: "Array" },
-            { q: "Which is wrong variable declaration?", options: ["int _a;", "float 1a;", "char name;", "int marks_1;"], correct: 1, topic: "Keywords, Variables, Data Types" },
-            { q: "What is value of expression: 5 + 2 * 3?", options: ["21", "17", "11", "7"], correct: 2, topic: "basic Maths" },
-            { q: "Number of elements in int a[3][4];", options: ["7", "12", "3", "4"], correct: 1, topic: "Array" },
-            { q: "Which access is correct?", options: ["a[2,3]", "a(2)(3)", "a[2][3]", "a<2><3>"], correct: 2, topic: "Array" },
-            { q: "Function is a block of code that", options: ["runs automatically", "performs a specific task", "replaces main()", "compiles program"], correct: 1, topic: "Function" },
-            {
-                q: `Output of code:
-
-#include <stdio.h>
-int main() {
-    int i = 5;
-    do{
-        printf("%d", i);
-        i--;
-    }while(i > 5);
-
-    return 0;
-    }`,
-                options: [
-                    "No output",
-                    "54321",
-                    "5",
-                    "Infinite loop"
-                ],
-                correct: 2,
-                topic: "loops"
+                q: "Which keyword is used to define function?",
+                options: ["function", "def", "fun", "define"],
+                correct: 1,
+                topic: "functions"
             },
             {
                 q: `Output of code:
 
-#include <stdio.h>
-int main() {
-    int i;
-    for(i = 1; i <= 5; i++){
-        if(i == 3)
-            break;
-        printf("%d", i);
-    }
+x = [1,2,3,4]
+print(x[2])`,
+                options: ["1", "2", "3", "4"],
+                correct: 2,
+                topic: "list"
+            },
+            {
+                q: "Which data type stores True or False?",
+                options: ["int", "bool", "float", "str"],
+                correct: 1,
+                topic: "data types"
+            },
+            {
+                q: `Output of code:
 
-    return 0;
-    }`,
+print(type(10))`,
                 options: [
-                    "123",
-                    "12",
-                    "3",
-                    "None"
+                    "int",
+                    "&lt;class 'int'&gt;",
+                    "number",
+                    "integer"
                 ],
+                correct: 1,
+                topic: "data types"
+            },
+            {
+                q: "Set allows",
+                options: ["duplicates", "only numbers", "unique values", "indexing"],
+                correct: 2,
+                topic: "set"
+            },
+            {
+                q: `Output of code:
+
+for i in range(3):
+    print(i)`,
+                options: ["1 2 3", "0 1 2", "0 1 2 3", "Error"],
+                correct: 1,
+                topic: "loops"
+            },
+            {
+                q: "Which symbol is used for comments in Python?",
+                options: ["//", "#", "/* */", "--"],
+                correct: 1,
+                topic: "basics"
+            },
+            {
+                q: `Output of code:
+
+print(int('5'))`,
+                options: ["5", "'5'", "Error", "None"],
+                correct: 0,
+                topic: "type casting"
+            },
+            {
+                q: "Dictionary stores data in",
+                options: ["index-value", "key-value", "single value", "random"],
+                correct: 1,
+                topic: "dictionary"
+            },
+            {
+                q: `Output of code:
+
+print(bool(0))`,
+                options: ["True", "False", "0", "Error"],
+                correct: 1,
+                topic: "type casting"
+            },
+            {
+                q: "Which statement stops loop completely?",
+                options: ["continue", "pass", "break", "stop"],
+                correct: 2,
+                topic: "loops"
+            },
+            {
+                q: `Output of code:
+
+x = (1,2,3)
+print(type(x))`,
+                options: ["list", "tuple", "set", "dict"],
+                correct: 1,
+                topic: "tuple"
+            },
+            {
+                q: "Which loop is best used when the number of iterations is known?",
+                options: ["while", "for", "do-while", "loop"],
                 correct: 1,
                 topic: "loops"
             },
             {
                 q: `Output of code:
 
-#include <stdio.h>
-int main() {
-    int a[] = {1,2,3,4};
-    printf("%d", a[2]);
-
-   return 0;
-    }`,
-                options: [
-                    "1",
-                    "2",
-                    "3",
-                    "4"
-                ],
-                correct: 2,
-                topic: "Array"
+print(float(5))`,
+                options: ["5", "5.0", "Error", "None"],
+                correct: 1,
+                topic: "type casting"
             },
-            { q: "How many values can a function return directly?", options: ["0", "1", "2", "many"], correct: 1, topic: "functions" }
-        ],
+            {
+                q: "Which is a valid variable name?",
+                options: ["2num", "num-1", "_num1", "num 1"],
+                correct: 2,
+                topic: "basics"
+            },
+            {
+                q: `Output of code:
+
+d = {1:'A',2:'B'}
+print(d[1])`,
+                options: ["A", "B", "1", "Error"],
+                correct: 0,
+                topic: "dictionary"
+            },
+            {
+                q: "Tuple is written using",
+                options: ["[ ]", "{ }", "( )", "< >"],
+                correct: 2,
+                topic: "tuple"
+            },
+            {
+                q: `Output of code:
+
+print(len([1,2,3]))`,
+                options: ["2", "3", "4", "Error"],
+                correct: 1,
+                topic: "list"
+            },
+            {
+                q: "Which keyword is used with if when condition is false?",
+                options: ["elseif", "else", "otherwise", "switch"],
+                correct: 1,
+                topic: "conditional"
+            },
+            {
+                q: `Output of code:
+
+def f():
+    return 5
+print(f())`,
+                options: ["5", "None", "Error", "0"],
+                correct: 0,
+                topic: "functions"
+            },
+            {
+                q: "continue statement does",
+                options: ["stop loop", "skip current iteration", "end program", "nothing"],
+                correct: 1,
+                topic: "loops"
+            },
+            {
+                q: `Output of code:
+
+s = {1,2,2,3}
+print(len(s))`,
+                options: ["4", "3", "2", "Error"],
+                correct: 1,
+                topic: "set"
+            },
+            {
+                q: "List is written using which brackets?",
+                options: ["( )", "{ }", "[ ]", "< >"],
+                correct: 2,
+                topic: "list"
+            },
+            {
+                q: `Output of code:
+
+print(str(10))`,
+                options: ["10", "'10'", "Error", "None"],
+                correct: 0,
+                topic: "type casting"
+            },
+            {
+                q: "Function without return gives",
+                options: ["0", "False", "None", "Error"],
+                correct: 2,
+                topic: "functions"
+            }
+        ]
+        ,
         2: [
             { q: "What is a pointer?", options: ["Variable storing address", "Data type", "Function", "Loop"], correct: 0, topic: "advanced" },
             { q: "Dynamic memory allocation uses?", options: ["malloc()", "alloc()", "new()", "create()"], correct: 0, topic: "advanced" },
