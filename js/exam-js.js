@@ -614,19 +614,449 @@ print(str(10))`,
         ]
         ,
         2: [
-            { q: "What is a pointer?", options: ["Variable storing address", "Data type", "Function", "Loop"], correct: 0, topic: "advanced" },
-            { q: "Dynamic memory allocation uses?", options: ["malloc()", "alloc()", "new()", "create()"], correct: 0, topic: "advanced" },
-            { q: "Which operator is used to dereference?", options: ["&", "*", "->", "::"], correct: 1, topic: "advanced" },
-            { q: "What is memory leak?", options: ["Unused allocated memory", "Stack overflow", "Syntax error", "Runtime error"], correct: 0, topic: "advanced" },
-            { q: "Array indexing starts from?", options: ["1", "0", "-1", "Depends"], correct: 1, topic: "advanced" }
+    {
+        q: "Constructor name in Python is",
+        options: ["init()", "__init__()", "constructor()", "start()"],
+        correct: 1,
+        topic: "constructor"
+    },
+    {
+        q: `Output of code:
+
+print(15 % 4)`,
+        options: ["3", "4", "2", "1"],
+        correct: 0,
+        topic: "arithmetic"
+    },
+    {
+        q: "Object is",
+        options: ["Function", "Instance of class", "Variable", "Module"],
+        correct: 1,
+        topic: "class objects"
+    },
+    {
+        q: `Output of code:
+
+for i in range(3):
+    if i == 1:
+        break
+    print(i)`,
+        options: ["0 1 2", "0", "1 2", "Error"],
+        correct: 1,
+        topic: "loops"
+    },
+    {
+        q: "Which statement is used to do nothing inside a loop?",
+        options: ["break", "continue", "pass", "skip"],
+        correct: 2,
+        topic: "loops"
+    },
+    {
+        q: `Output of code:
+
+print(bool([]))`,
+        options: ["True", "False", "Error", "None"],
+        correct: 1,
+        topic: "logical"
+    },
+    {
+        q: "Private variable symbol is",
+        options: ["_x", "__x", "#x", "@@x"],
+        correct: 1,
+        topic: "oops"
+    },
+    {
+        q: `Output of code:
+
+class A:
+    x = 10
+
+obj = A()
+print(obj.x)`,
+        options: ["Error", "0", "10", "None"],
+        correct: 2,
+        topic: "class objects"
+    },
+    {
+        q: `Output of code:
+
+print("Python" * 2)`,
+        options: ["PythonPython", "Error", "Python 2", "None"],
+        correct: 0,
+        topic: "strings"
+    },
+   {
+    q: `Output of code:
+
+def test(a, b=5):
+    return a * b
+
+print(test(3))`,
+    options: ["15", "8", "Error", "None"],
+    correct: 0,
+    topic: "functions"
+},
+    {
+        q: `Output of code:
+
+print(8 // 3)`,
+        options: ["2.6", "2", "3", "Error"],
+        correct: 1,
+        topic: "arithmetic"
+    },
+    {
+        q: "Method overriding belongs to",
+        options: ["Encapsulation", "Polymorphism", "Abstraction", "Constructor"],
+        correct: 1,
+        topic: "oops"
+    },
+    {
+        q: `Output of code:
+
+def f(x=2):
+    return x*2
+print(f())`,
+        options: ["2", "4", "Error", "None"],
+        correct: 1,
+        topic: "functions"
+    },
+    {
+        q: "Keyword used to define class",
+        options: ["object", "create", "class", "define"],
+        correct: 2,
+        topic: "class objects"
+    },
+    {
+        q: `Output of code:
+
+print(10 > 5 and 5 > 2)`,
+        options: ["False", "True", "Error", "None"],
+        correct: 1,
+        topic: "logical"
+    },
+    {
+        q: "Default return value of a function is",
+        options: ["0", "False", "None", "Error"],
+        correct: 2,
+        topic: "functions"
+    },
+    {
+        q: "Inheritance means",
+        options: ["Data hiding", "Code reuse", "Loop", "Function call"],
+        correct: 1,
+        topic: "oops"
+    },
+    {
+        q: `Output of code:
+
+for i in range(1,4):
+    print(i, end=" ")`,
+        options: ["0 1 2", "1 2 3", "1 2 3 4", "Error"],
+        correct: 1,
+        topic: "loops"
+    },
+    {
+        q: "What is self in class?",
+        options: ["Keyword", "Object reference", "Class variable", "Loop"],
+        correct: 1,
+        topic: "class objects"
+    },
+    {
+        q: `Output of code:
+
+a = [1,2,3]
+print(type(a))`,
+        options: ["list", "<class 'list'>", "array", "object"],
+        correct: 1,
+        topic: "list"
+    },
+    {
+        q: "Multiple inheritance means",
+        options: [
+            "One parent many child",
+            "Many parents one child",
+            "One class one parent",
+            "None"
         ],
+        correct: 1,
+        topic: "oops"
+    },
+    {
+        q: "Which keyword is used to return value from function?",
+        options: ["print", "break", "return", "pass"],
+        correct: 2,
+        topic: "functions"
+    },
+    {
+        q: `Output of code:
+
+print(5 == 5.0)`,
+        options: ["False", "True", "Error", "None"],
+        correct: 1,
+        topic: "logical"
+    },
+    {
+        q: "Constructor is called",
+        options: [
+            "Manually",
+            "Automatically when object created",
+            "Never",
+            "By loop"
+        ],
+        correct: 1,
+        topic: "constructor"
+    },
+    {
+        q: `Output of code:
+
+class Test:
+    def __init__(self):
+        print("Hi")
+
+t = Test()`,
+        options: ["Hi", "Error", "Nothing", "None"],
+        correct: 0,
+        topic: "constructor"
+    }
+],
+
         3: [
-            { q: "How to pass array to function?", options: ["By value", "By reference", "Both", "Cannot pass"], correct: 1, topic: "methods" },
-            { q: "What is recursion?", options: ["Function calling itself", "Loop", "Pointer", "Array"], correct: 0, topic: "methods" },
-            { q: "Function return type void means?", options: ["Returns nothing", "Returns 0", "Error", "Invalid"], correct: 0, topic: "methods" },
-            { q: "What is function prototype?", options: ["Function declaration", "Function definition", "Function call", "Function pointer"], correct: 0, topic: "methods" },
-            { q: "Call by value means?", options: ["Copy of variable", "Address passed", "Reference passed", "None"], correct: 0, topic: "methods" }
+    {
+        q: "Which module is used to generate random numbers?",
+        options: ["math", "sys", "random", "re"],
+        correct: 2,
+        topic: "random"
+    },
+   {
+    q: `Output of code:
+
+import numpy as np
+a = np.array([1,2,3])
+print(a.size)`,
+    options: ["1", "2", "3", "Error"],
+    correct: 2,
+    topic: "numpy"
+},
+    {
+        q: "super() is mainly used to",
+        options: [
+            "Call parent class methods",
+            "Create object",
+            "Delete class",
+            "Stop inheritance"
         ],
+        correct: 0,
+        topic: "super"
+    },
+    {
+        q: "Which library is mainly used for plotting graphs?",
+        options: ["numpy", "pandas", "matplotlib", "sys"],
+        correct: 2,
+        topic: "matplotlib"
+    },
+    {
+        q: `Output of code:
+
+class A:
+    def show(self):
+        return "A"
+
+class B(A):
+    def show(self):
+        return "B"
+
+obj = B()
+print(obj.show())`,
+        options: ["A", "B", "Error", "None"],
+        correct: 1,
+        topic: "oops"
+    },
+    {
+        q: "Which module is used to interact with operating system files and folders?",
+        options: ["sys", "math", "os", "json"],
+        correct: 2,
+        topic: "os"
+    },
+    {
+        q: `Output of code:
+
+import pandas as pd
+s = pd.Series([10,20,30])
+print(len(s))`,
+        options: ["2", "3", "30", "Error"],
+        correct: 1,
+        topic: "pandas"
+    },
+    {
+        q: "re module is used for",
+        options: [
+            "File handling",
+            "Regular expressions",
+            "Random numbers",
+            "Date handling"
+        ],
+        correct: 1,
+        topic: "re"
+    },
+    {
+        q: `Output of code:
+
+import os
+print(os.path.basename("C:/test/file.txt"))`,
+        options: ["C:/test", "file.txt", "test", "Error"],
+        correct: 1,
+        topic: "os"
+    },
+   {
+    q: "Seaborn is mainly used with which type of data?",
+    options: ["Numerical and statistical data", "Audio files", "System files", "Network data"],
+    correct: 0,
+    topic: "seaborn"
+},
+    {
+        q: `Output of code:
+
+import math
+print(math.sqrt(25))`,
+        options: ["5", "25", "Error", "5.0 only"],
+        correct: 0,
+        topic: "math"
+    },
+    {
+        q: "Which OOP concept allows using the same method name with different implementations?",
+        options: ["Encapsulation", "Inheritance", "Polymorphism", "Abstraction"],
+        correct: 2,
+        topic: "oops"
+    },
+    {
+        q: `Output of code:
+
+import random
+print(random.randint(1,3))`,
+        options: [
+            "Always 1",
+            "1 to 3 (inclusive)",
+            "0 to 3",
+            "Error"
+        ],
+        correct: 1,
+        topic: "random"
+    },
+ {
+    q: `Output of code:
+
+import json
+data = {"x": 10}
+print(json.dumps(data))`,
+    options: ['{"x": 10}', "{'x': 10}", "dict", "Error"],
+    correct: 0,
+    topic: "json"
+},
+    {
+        q: "NumPy arrays are mainly used for",
+        options: [
+            "Web development",
+            "Numerical computation",
+            "File storage",
+            "String formatting"
+        ],
+        correct: 1,
+        topic: "numpy"
+    },
+    {
+        q: `Output of code:
+
+class A:
+    def __init__(self):
+        self.x = 10
+
+class B(A):
+    def __init__(self):
+        super().__init__()
+        self.x += 5
+
+obj = B()
+print(obj.x)`,
+        options: ["10", "15", "5", "Error"],
+        correct: 1,
+        topic: "super"
+    },
+    {
+        q: "JSON data in Python is mostly handled using",
+        options: ["csv", "json", "pickle", "sys"],
+        correct: 1,
+        topic: "json"
+    },
+  {
+    q: "Which module is used to work with dates and time in Python?",
+    options: ["random", "datetime", "os", "re"],
+    correct: 1,
+    topic: "datetime"
+}
+,
+    {
+        q: "Which module is used for CSV file handling?",
+        options: ["json", "csv", "os", "sys"],
+        correct: 1,
+        topic: "csv"
+    },
+    {
+        q: "Pandas DataFrame is",
+        options: [
+            "1D structure",
+            "2D tabular structure",
+            "String",
+            "Loop type"
+        ],
+        correct: 1,
+        topic: "pandas"
+    },
+    {
+        q: `Output of code:
+
+import re
+print(bool(re.match("a", "apple")))`,
+        options: ["True", "False", "Error", "None"],
+        correct: 0,
+        topic: "re"
+    },
+    {
+        q: "Which math function returns factorial?",
+        options: ["fact()", "factorial()", "fabs()", "pow()"],
+        correct: 1,
+        topic: "math"
+    },
+    {
+        q: "sys.argv is used to",
+        options: [
+            "Read command-line arguments",
+            "Create files",
+            "Generate random numbers",
+            "Handle regex"
+        ],
+        correct: 0,
+        topic: "sys"
+    },
+ {
+    q: `Output of code:
+
+import sys
+print(len(sys.argv) >= 0)`,
+    options: ["True", "False", "Error", "None"],
+    correct: 0,
+    topic: "sys"
+},
+    {
+        q: `Output of code:
+
+from datetime import datetime
+d = datetime.now()
+print(type(d).__name__)`,
+        options: ["date", "datetime", "time", "string"],
+        correct: 1,
+        topic: "datetime"
+    }
+],
         4: [
             { q: "Does C support OOP?", options: ["Yes, fully", "No, procedural", "Partially", "Depends"], correct: 1, topic: "oop" },
             { q: "Structure in C uses keyword?", options: ["class", "struct", "object", "type"], correct: 1, topic: "oop" },
