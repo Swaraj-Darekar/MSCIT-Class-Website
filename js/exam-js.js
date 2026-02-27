@@ -1058,12 +1058,332 @@ print(type(d).__name__)`,
     }
 ],
         4: [
-            { q: "Does C support OOP?", options: ["Yes, fully", "No, procedural", "Partially", "Depends"], correct: 1, topic: "oop" },
-            { q: "Structure in C uses keyword?", options: ["class", "struct", "object", "type"], correct: 1, topic: "oop" },
-            { q: "Can struct have functions in C?", options: ["Yes", "No", "Only pointers", "Only static"], correct: 1, topic: "oop" },
-            { q: "What is typedef used for?", options: ["Creating alias", "Defining functions", "Memory allocation", "Type conversion"], correct: 0, topic: "oop" },
-            { q: "Union vs Structure difference?", options: ["Memory sharing", "Syntax", "Keywords", "No difference"], correct: 0, topic: "oop" }
-        ]
+           {
+q: `Output of code:
+
+x = 10
+y = x
+x = 20
+print(y)`,
+options: ["10", "20", "Error", "None"],
+correct: 0,
+topic: "variables"
+},
+
+{
+q: `Output of code:
+
+a = [1,2,3]
+b = a
+a.append(4)
+print(b)`,
+options: ["[1,2,3]", "[1,2,3,4]", "Error", "[4]"],
+correct: 1,
+topic: "list reference"
+},
+
+{
+q: `Output of code:
+
+s = {1, 2, 3}
+print(2 in s and 5 in s)`,
+options: [
+    "True",
+    "False",
+    "Error",
+    "None"
+],
+correct: 1,
+topic: "set & logical"
+},
+
+{
+q: `Output of code:
+
+if 0:
+    print("Yes")
+else:
+    print("No")`,
+options: ["Yes", "No", "0", "Error"],
+correct: 1,
+topic: "conditional"
+},
+
+{
+q: `Output of code:
+
+for i in range(1,4):
+    print(i, end=" ")`,
+options: ["1 2 3", "0 1 2 3", "1 2 3 4", "Error"],
+correct: 0,
+topic: "loops"
+},
+
+{
+q: `Output of code:
+
+def f(a, b=2):
+    return a*b
+
+print(f(3))`,
+options: ["6", "5", "Error", "None"],
+correct: 0,
+topic: "functions"
+},
+
+{
+q: `Output of code:
+
+d = {"a": 1, "b": 2}
+d.update({"a": 5})
+print(d["a"] + d["b"])`,
+options: ["3", "7", "6", "Error"],
+correct: 1,
+topic: "dictionary tricky"
+},
+
+{
+q: `Output of code:
+
+count = 0
+for i in range(1, 5):
+    if i % 2 == 0:
+        count += 1
+print(count)`,
+options: ["1", "2", "3", "4"],
+correct: 1,
+topic: "loops"
+},
+
+{
+q: `Output of code:
+
+s = {1,2,2,3}
+print(len(s))`,
+options: ["4", "3", "2", "Error"],
+correct: 1,
+topic: "set"
+},
+
+{
+q: `Output of code:
+
+s = {1, 2, 3}
+print(2 in s and 5 in s)`,
+options: [
+    "True",
+    "False",
+    "Error",
+    "None"
+],
+correct: 1,
+topic: "set & logical"
+},
+
+{
+q: `Output of code:
+
+print("5" * 2)`,
+options: ["10", "55", "Error", "5*2"],
+correct: 1,
+topic: "basics"
+},
+
+{
+q: `Output of code:
+
+print(0.1 + 0.2 == 0.3)`,
+options: ["True", "False", "Error", "0.3"],
+correct: 1,
+topic: "data types"
+},
+
+{
+q: `Output of code:
+
+x = 5
+def test():
+    x = 10
+test()
+print(x)`,
+options: ["10", "5", "Error", "None"],
+correct: 1,
+topic: "scope"
+},
+
+{
+q: `Output of code:
+
+print([1,2] + [3])`,
+options: ["[1,2,3]", "[4]", "Error", "[1,2][3]"],
+correct: 0,
+topic: "list"
+},
+
+{
+q: `Output of code:
+
+s = {1, 2, 3}
+print(s.add(4))`,
+options: [
+    "{1, 2, 3, 4}",
+    "4",
+    "None",
+    "Error"
+],
+correct: 2,
+topic: "set"
+},
+
+{
+q: `Output of code:
+
+class A:
+    x = 10
+
+class B(A):
+    pass
+
+obj = B()
+print(obj.x)`,
+options: ["10", "Error", "None", "0"],
+correct: 0,
+topic: "inheritance"
+},
+
+{
+q: `Output of code:
+
+class A:
+    def show(self):
+        return "A"
+
+class B(A):
+    def show(self):
+        print("B")
+        return super().show()
+
+obj = B()
+print(obj.show())`,
+options: [
+    "A",
+    "B",
+    "B A",
+    "A B"
+],
+correct: 2,
+topic: "polymorphism tricky"
+},
+
+{
+q: `Output of code:
+
+class A:
+    x = []
+
+a1 = A()
+a2 = A()
+
+a1.x.append(1)
+
+print(a2.x)`,
+options: [
+    "[]",
+    "[1]",
+    "Error",
+    "None"
+],
+correct: 1,
+topic: "class variable tricky"
+},
+
+{
+q: `Output of code:
+
+for i in range(3):
+    if i == 1:
+        break
+    print(i, end=" ")`,
+options: ["0", "0 1", "0 1 2", "Error"],
+correct: 0,
+topic: "loops"
+},
+
+{
+q: `Output of code:
+
+x = "5"
+y = 2
+print(x * y)`,
+options: [
+    "10",
+    "55",
+    "Error",
+    "5*2"
+],
+correct: 1,
+topic: "data types"
+},
+
+{
+q: `Output of code:
+
+import math
+print(math.sqrt(16))`,
+options: ["4", "4.0", "256", "Error"],
+correct: 1,
+topic: "math"
+},
+
+{
+q: `Output of code:
+
+import random
+print(random.randint(1,1))`,
+options: ["0", "1", "Random", "Error"],
+correct: 1,
+topic: "random"
+},
+
+{
+q: `Output of code:
+
+a = {1,2,3}
+b = {2,3,4}
+print(a & b)`,
+options: ["{2,3}", "{1,4}", "Error", "{2,3,4}"],
+correct: 0,
+topic: "set"
+},
+
+{
+q: `Output of code:
+
+a = [10, 20, 30]
+print(a.pop())`,
+options: ["10", "20", "30", "[10, 20]"],
+correct: 2,
+topic: "list"
+},
+
+{
+q: `Output of code:
+
+a = [1, 2, 3]
+b = a
+a += [4]
+print(a, b)`,
+options: [
+    "[1, 2, 3, 4] [1, 2, 3]",
+    "[1, 2, 3, 4] [1, 2, 3, 4]",
+    "[1, 2, 3] [1, 2, 3, 4]",
+    "Error"
+],
+correct: 1,
+topic: "list tricky"
+},
+    
+]
     },
 
 
